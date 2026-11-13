@@ -67,7 +67,7 @@ Podとして起動・実行される各Taskは、Task終了時にPodが消えて
 ### PVCを作成
 - 以下のコマンドをWeb  Terminalで実行し、PVCを作成する
   ```
-  oc apply -f  https://gitlab.com/hikaru-nomura/openshift-handson/-/raw/main/pipeline-experience/workspace-pvc.yaml
+  oc apply -f  https://nxmxrxhx.github.io/openshift-handson/pipeline-experience/workspace-pvc.yaml
   ```
 
 ---
@@ -191,7 +191,7 @@ PVCのスペックは以下の通り。
 
   |名前	|説明	|デフォルト値|
   |---|---|---|
-  |GIT_URL|ソースコードを取ってくる先のGitリポジトリのURL|`https://gitlab.com/hikaru-nomura/openshift-handson.git`|
+  |GIT_URL|ソースコードを取ってくる先のGitリポジトリのURL|`https://github.com/nxmxrxhx/openshift-handson.git`|
   |DOCKERFILE_PATH|イメージをBuildする為のDockerfileのありかを示すパス|`./pipeline-experience/sample-app/source/Dockerfile`|
   |SOURCE_PATH|イメージをBuildする対象のアプリケーションのソースコードのありかを示すパス|`./pipeline-experience/sample-app/source`|
   |INTERNAL_REGISTRY_URL|コピー元の内部レジストリのURL|`image-registry.openshift-image-registry.svc:5000/myproject/log-test`|
@@ -205,7 +205,7 @@ PVCのスペックは以下の通り。
 
   **デフォルト値**
   ```
-  https://gitlab.com/hikaru-nomura/openshift-handson.git
+  https://github.com/nxmxrxhx/openshift-handson.git
   ```
   ```
   ./pipeline-experience/sample-app/source/Dockerfile
@@ -404,12 +404,12 @@ trivy image IMAGE_NAME --severity HIGH,CRITICAL
 ここまでの作業で作成・実行したパイプラインを使い、コンテナイメージのビルドとスキャンが完了しました。このイメージを使ってアプリケーションをデプロイします。デプロイはArgoCDアプリケーションを利用しましょう。
 
 今回用意してあるマニフェストの一覧は以下の通りです。
-- [dployment.yaml](https://gitlab.com/hikaru-nomura/openshift-handson/-/blob/main/pipeline-experience/sample-app/manifest/deployment.yaml?ref_type=heads)
-- [service.yaml](https://gitlab.com/hikaru-nomura/openshift-handson/-/blob/main/pipeline-experience/sample-app/manifest/service.yaml?ref_type=heads)
-- [route.yaml](https://gitlab.com/hikaru-nomura/openshift-handson/-/blob/main/pipeline-experience/sample-app/manifest/route.yaml?ref_type=heads)
+- [dployment.yaml](https://nxmxrxhx.github.io/openshift-handson/pipeline-experience/sample-app/manifest/deployment.yaml)
+- [service.yaml](https://nxmxrxhx.github.io/openshift-handson/pipeline-experience/sample-app/manifest/service.yaml)
+- [route.yaml](https://nxmxrxhx.github.io/openshift-handson/pipeline-experience/sample-app/manifest/route.yaml)
 
 また、既に用意してあるlog-testアプリのArgoCDアプリケーションは以下の通りです。
-- [argocd-app.yaml](https://gitlab.com/hikaru-nomura/openshift-handson/-/blob/main/pipeline-experience/sample-app/argocd-app/argocd-app.yaml)
+- [argocd-app.yaml](https://nxmxrxhx.github.io/openshift-handson/pipeline-experience/sample-app/argocd-app/argocd-app.yaml)
 
   ```
   apiVersion: argoproj.io/v1alpha1
@@ -424,7 +424,7 @@ trivy image IMAGE_NAME --severity HIGH,CRITICAL
       server: https://kubernetes.default.svc
     source:
       path: ./pipeline-experience/sample-app/manifest
-      repoURL: https://gitlab.com/hikaru-nomura/openshift-handson.git
+      repoURL: https://github.com/nxmxrxhx/openshift-handson.git
       targetRevision: main
     sources: []
     project: default
@@ -460,11 +460,11 @@ metadata:
 - 以下のコマンドを用いてArgoCDアプリケーションを適用する
 
 ```
-oc apply -f https://gitlab.com/hikaru-nomura/openshift-handson/-/raw/main/pipeline-experience/sample-app/argocd-app/argocd-app.yaml -n openshift-gitops
+oc apply -f https://nxmxrxhx.github.io/openshift-handson/pipeline-experience/sample-app/argocd-app/argocd-app.yaml -n openshift-gitops
 ```
 
 ---
-**■補足：** 「[GitOpsを体験](https://gitlab.com/hikaru-nomura/openshift-handson/-/blob/main/gitops-experience/text.md?ref_type=heads#argocd%E3%81%8B%E3%82%89manifest%E3%82%92%E9%81%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%82%82%E3%82%89%E3%81%86)」では、ArgoCDのコンソール画面からArgoCDアプリケーションのYAMLファイルを適用しましたが、ArgoCDのadmin権限を持つOpenShiftユーザがocコマンドを利用して直接YAMLファイルをクラスタに適用することもできます。
+**■補足：** 「[GitOpsを体験](../gitops-experience/README.md#argocd%E3%81%8B%E3%82%89manifest%E3%82%92%E9%81%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%82%82%E3%82%89%E3%81%86)」では、ArgoCDのコンソール画面からArgoCDアプリケーションのYAMLファイルを適用しましたが、ArgoCDのadmin権限を持つOpenShiftユーザがocコマンドを利用して直接YAMLファイルをクラスタに適用することもできます。
 
 ---
 

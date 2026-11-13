@@ -55,7 +55,7 @@ Red Hat OpenShift（以下、OpenShiftと省略）は、「**エンタープラ�
 ### 実行するコマンドの指定
 例：CMD 
 
-このコンテンツで利用するNode.jsアプリケーションの[Dockerfile](https://gitlab.com/hikaru-nomura/openshift-handson/-/blob/main/pipeline-experience/sample-app/source/Dockerfile?ref_type=heads)を見てみましょう。
+このコンテンツで利用するNode.jsアプリケーションの[Dockerfile](https://nxmxrxhx.github.io/openshift-handson/pipeline-experience/sample-app/source/Dockerfile)を見てみましょう。
 
 ```
 # ベースイメージの取得
@@ -205,7 +205,7 @@ Kubernetesを利用する上でまずハードルになるのがコマンド操�
 ![alt text](image_console.png)
 
 ---
-※コンソール画面の詳細は[OpenShiftコンソール画面ツアー](https://gitlab.com/hikaru-nomura/openshift-handson/-/blob/main/openshift-console-tour/text.md?ref_type=heads)で触れます。
+※コンソール画面の詳細は[OpenShiftコンソール画面ツアー](../openshift-console-tour/README.md)で触れます。
 
 
 **■ Operatorを利用したアドオン管理機能** <br>
