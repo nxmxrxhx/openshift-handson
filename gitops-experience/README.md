@@ -183,5 +183,8 @@ ArgoCDを利用した「**GitOps**」を体験しました。ManifestをGitリ�
 
 ![alt text](image-14.png)
 
+> [!NOTE]
+> 次の章に進む前に、画面上部の「**プロジェクト: ▼**」から「**myproject**」に戻しておいてください。
+
 ## 目次へ戻る
 [こちら](../README.md)
